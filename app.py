@@ -9,6 +9,7 @@ st.title("Hello Streamlit!")
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "何か気になることはありますか？"}]
 
+# セッションで管理しているメッセージを全て出力
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
