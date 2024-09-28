@@ -45,20 +45,24 @@ if prompt := st.chat_input("Groqにメッセージを送信する"):
         "content": "あなたは日本語で回答する便利なアシスタントです。"
     }
 
-    # Set the user prompt
+    # ユーザのプロンプトをセット
     user_input = prompt
     user_prompt = {
         "role": "user", "content": user_input
     }
 
-    # Initialize the chat history
+    # チャット履歴を格納
     chat_history = [system_prompt, user_prompt]
 
+    # 回答を格納
     response = client.chat.completions.create(model=selected_model,
                                                 messages=chat_history,
                                                 max_tokens=max_tokens,
                                                 temperature=temperature)
     
+    # メッセージを取得
     msg = response.choices[0].message
+    # セッションにメッセージを追加
     st.session_state.messages.append({"role": "assistant", "content": msg.content})
+    # メッセージを出力
     st.chat_message("assistant").write(msg.content)
