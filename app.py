@@ -40,7 +40,7 @@ if prompt := st.chat_input("Groqにメッセージを送信する"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
 
-    # Set the system prompt
+    # システムプロンプトをセット
     system_prompt = {
         "role": "system",
         "content": "あなたは日本語で回答する便利なアシスタントです。"
