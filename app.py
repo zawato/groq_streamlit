@@ -3,7 +3,7 @@ import streamlit as st
 from groq import Groq
 
 # メインタイトル
-st.title("Hello Streamlit!")
+st.title("StreamlitのAIチャットツール")
 
 # メッセージの値を保持
 if "messages" not in st.session_state:
